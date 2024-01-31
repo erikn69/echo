@@ -16,6 +16,7 @@ export abstract class Connector {
         broadcaster: 'pusher',
         csrfToken: null,
         bearerToken: null,
+        apiKey: null,
         host: null,
         key: null,
         namespace: 'App.Events',
@@ -52,6 +53,13 @@ export abstract class Connector {
         if (token) {
             this.options.auth.headers['Authorization'] = 'Bearer ' + token;
             this.options.userAuthentication.headers['Authorization'] = 'Bearer ' + token;
+        }
+
+        token = this.options.apiKey;
+
+        if (token) {
+            this.options.auth.headers['Authorization'] = 'apikey ' + token;
+            this.options.userAuthentication.headers['Authorization'] = 'apikey ' + token;
         }
 
         return options;
