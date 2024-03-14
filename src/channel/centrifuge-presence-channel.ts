@@ -28,6 +28,9 @@ export class CentrifugePresenceChannel extends CentrifugeChannel implements Pres
      * Send a whisper event to other clients in the channel.
      */
     whisper(eventName: string, data: any): CentrifugePresenceChannel {
+        /*this.centrifuge.getSubscription(this.name).publish({...data, ...{
+            event: "client-" + eventName
+        }});*/
         return this;
     }
 

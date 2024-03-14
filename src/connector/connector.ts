@@ -58,8 +58,8 @@ export abstract class Connector {
         token = this.options.apiKey;
 
         if (token) {
-            this.options.auth.headers['Authorization'] = 'apikey ' + token;
-            this.options.userAuthentication.headers['Authorization'] = 'apikey ' + token;
+            this.options.auth.headers['X-API-Key'] = token;
+            this.options.userAuthentication.headers['X-API-Key'] = token;
         }
 
         return options;
